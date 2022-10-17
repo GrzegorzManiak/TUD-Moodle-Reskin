@@ -6,7 +6,8 @@
     "target": "es5",
     "composite": true,
     "declarationMap": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "noEmit": false,
   },
   "include": [
     "./src/*.ts",

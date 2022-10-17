@@ -1,22 +1,24 @@
-import { apply_css } from "./core/core";
-import startup, { load_css } from "./core/startup";
+import styles, { apply_old } from "./core/styles";
+import ver from "./core/api/ver";
 
-// -- Start loading CSS
-const css = load_css();
+export const CSS_KEY = "tud-moodle-reskin-css";
+export const ROOT_KEY = "tud-moodle-reskin-root";
+export const VER_KEY = "tud-moodle-reskin-ver";
+export const OPTIONS_PANEL = "gm-tud-reskin-options";
 
-// -- Check for updates
-const server = setInterval(async() => {
-    if (document.getElementsByTagName('body')) {
-        clearInterval(server);
-        return apply_css(await css);
-    }
-}, 1);
+export const THEMES_KEY = "tud-moodle-reskin-themes";
+export const ACTIVE_THEME_KEY = "tud-moodle-reskin-active-theme";
 
+// -- Apply what we got
+apply_old();
 
-// -- Wait till everything we need is loaded
-const local = setInterval(async() => {
-    if (document.getElementsByTagName('body')) {
-        clearInterval(local);
-        return startup();
-    }
-}, 1);
+// -- Get the current version
+const version = ver(true);
+
+version.then(async (data) => {
+    // -- Pass the data to the css function
+    styles(data, true, true);
+
+    // -- log the data
+    console.log(data);
+});

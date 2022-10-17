@@ -1,0 +1,59 @@
+<html>
+    <div id='gm-tud-reskin-options'>
+
+    </div>
+
+    <div id='test'>sdfasdfasdf</div>
+
+    <style>
+        body {
+            background-color: rgb(179, 179, 179);
+        }
+        #gm-tud-reskin-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            gap: 1.5rem;
+        }
+
+        #test {
+            padding: 2rem;
+            background-color: rgb(255, 255, 255);
+            border-radius: var(--border-radius);
+        }
+
+
+        .colors {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 1rem;
+            width: 100%;
+            height: auto;
+            flex-wrap: wrap;
+        }
+
+        .colors > div {
+            background-color: #191c22;
+            border-radius: 10px;
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .colors > div > label {
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        .colors > div > input {
+            width: 100%;
+        }
+    </style>
+    <!-- Simple env to test builds -->
+    <script src='./dist/bundle.js'></script>
+</html>
